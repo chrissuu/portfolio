@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "title": "revisiting bin. search",
+      "subtitle": "reduction to partitioned boolean array search",
+      "date": "2025-12-01",
+      "url": "https://www.chrissuu.com/bleu/2025-12-01-bin-search/"
+    },
+    {
+      "title": "toda's theorem",
+      "subtitle": "PH is a subset of P^#SAT",
+      "date": "2025-11-15",
+      "url": "https://www.chrissuu.com/bleu/2025-11-15-todas-theorem/"
+    },
+    {
+      "title": "lean is amazing!",
+      "subtitle": "lean4 propaganda",
+      "date": "2025-10-28",
+      "url": "https://www.chrissuu.com/bleu/2025-10-28-lean/"
+    },
+    {
+      "title": "pre training as bootstrapping",
+      "subtitle": "llm post-training",
+      "date": "2025-10-17",
+      "url": "https://www.chrissuu.com/bleu/2025-10-17-bootstrapping-llm/"
+    },
+    {
+      "title": "your time is taking up my space!",
+      "subtitle": "time travel as a computational resource? (pt 3)",
+      "date": "2025-08-21",
+      "url": "https://www.chrissuu.com/bleu/2025-08-21-pspace-ctc/"
+    }
+  ]
+}

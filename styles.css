@@ -1,0 +1,90 @@
+body {
+    max-width: 100ch;
+    margin: 40px auto;
+    padding: 0 16px;
+}
+.content {
+    position: relative;
+}
+.experience-item {
+    display: flex;
+    align-items: flex-start;
+}
+.experience-date {
+    flex: 0 0 110px;
+    text-align: left;
+    margin-right: 12px;
+}
+.experience-item + .experience-item {
+    margin-top: 10px;
+}
+a.footnote {
+    vertical-align: super;
+    font-size: 0.75em;
+    text-decoration: none;
+}
+.footnote-ellipsis {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    padding: 0 0 0 4px;
+    text-decoration: underline;
+}
+.footnotes {
+    font-size: 0.8em;
+}
+.footnotes p {
+    margin: 0;
+}
+.sidenotes {
+    position: absolute;
+    top: 0;
+    right: -264px;
+    width: 240px;
+    font-size: 0.8em;
+    line-height: 1.4;
+}
+.sidenote {
+    position: absolute;
+    right: 0;
+    padding-left: 10px;
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+.sidenote-number {
+    font-weight: bold;
+    margin-right: 6px;
+}
+.has-sidenotes .footnotes {
+    display: none;
+}
+.inline-footnote {
+    display: block;
+    margin: 12px 0 16px;
+    font-size: 0.78em;
+    border-left: 2px solid rgba(0, 0, 0, 0.2);
+    padding-left: 10px;
+    background-color: transparent;
+}
+.inline-footnote-number {
+    font-weight: bold;
+    margin-right: 6px;
+}
+.has-inline-footnotes .footnotes {
+    display: none;
+}
+@media (max-width: 1099px) {
+    .content a.footnote {
+        -webkit-tap-highlight-color: transparent;
+    }
+    .sidenotes {
+        display: none;
+    }
+    .has-sidenotes .footnotes {
+        display: block;
+    }
+    .footnotes {
+        display: none;
+    }
+}

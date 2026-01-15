@@ -4,37 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About me - Chris Su</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="content">
     <h1>About Me</h1>
     
     <h2>Hi, I'm Chris Su</h2>
     <img src="assets/profilepic.JPEG" alt="Profile photo of Chris Su" width=200>
     
-    <p>Welcome to my personal page!</p>
-    
     <h2>Background</h2>
-    <p>I'm currently an undergraduate student at Carnegie Mellon University, where I study artificial intelligence and computer science. </p>
+    <p>Welcome to my personal page!</p>
+    <p>I'm currently an undergraduate student at Carnegie Mellon University, where I 
+        study artificial intelligence and computer science. </p>
+    <p>My interests are in machine learning, software engineering, and theoretical computer science. </p>
     
-    <p>I'm most interested in problems related to the nature of abstraction & reasoning.</p>
+    <p>I like nature and animals, with my favorite animal being 
+        the <a href="https://chrissuu.com/rito" id="rito-link">polar bear</a>.
+        My favorite fun fact is that llamas and cows don't have upper front teeth!</p>
 
-    <h2>Skills & Interests</h2>
+    <h2>Interests/Experience</h2>
+    </p>More recently, I've been interested by the theorem proving / functional programming / 
+        compilers space<a class="footnote" href="#fn-form">1</a>. One of the main projects I 
+        hope to take up in the future is writing the Lean4 kernel in OCaml<a class="footnote" href="#fn-lean">2</a> 
+        as well as formalizing some theorems in complexity theory once Lean4 figures out cost models 
+        for program analysis<a class="footnote" href="#fn-cook-levin">3</a>. 
+
+    </p>
     <p>In the past / currently, I've worked on the following:</p>
     <ul>
-        <li><span style="display:inline-block; width:110px;">2025–present</span>Recently joined @ <a href="https://www.stagiralabs.com">Stagira Labs</a> working on software in the intersections of formal methods, game theory, and rl</li>
-        <li><span style="display:inline-block; width:110px;">2024-present</span>Controls Software Engineer @ Carnegie Mellon Racing, where I worked on improving simulation software and reducing testing hours + deep reinforcement learning and control theory</li>
-        <li><span style="display:inline-block; width:110px;">Summer 2025</span>SDE Intern @ Amazon Ads, where I built a validation stack for validating rankings/recommendations models + did some cool statistical studies</li>
-        <li><span style="display:inline-block; width:110px;">Summer 2024</span>REU program @ ASU Sensip Center for convnet dimensionality reduction using quantum computing</li>
-        <li><span style="display:inline-block; width:110px;">2022-2023</span>Software intern @ Acivilate, inc., a gov-tech startup for reducing <a href="https://en.wikipedia.org/wiki/Recidivism">recidivism</a></li>
-        <li><span style="display:inline-block; width:110px;">2025–present</span>*currently* building <a href="https://www.github.com/chrissuu/elastisched">elastisched</a>, an intelligent (non-ai) scheduler, built with python frontend, cpp backend that uses <a href="https://en.wikipedia.org/wiki/Simulated_annealing">simulated annealing </a> to find times for tasks you need to get done!</li>
+        <li class="experience-item"><span class="experience-date">present</span><span>
+            Recently joined @<a href="#" data-link="stagira-labs">Stagira Labs</a> working on 
+            software in the intersections of formal methods, game theory, and rl. </span></li>
+
+        <li class="experience-item"><span class="experience-date">present</span><span>
+            Controls software engineer @ Carnegie Mellon Racing Driverless, where I work(/ed)
+             on improving simulation software and reducing testing hours + deep reinforcement 
+             learning and control theory. We build autonomous racecars and we're one of the 
+             pioneering teams for collegiate competitive autonomous racing in the US!</span></li>
+
+        <li class="experience-item"><span class="experience-date">present</span><span>
+            Building elastisched, a data-driven task scheduler and event calendar. It can 
+            learn your task habits, preference-learn the ways you want your tasks to be scheduled, 
+            and integrates with common calendar providers. Read more about it in 
+            the <a href="https://www.github.com/chrissuu/elastisched">github</a>!<a class="footnote" 
+            href="#fn-elastisched">4</a></span></li>
+
+        <li class="experience-item"><span class="experience-date">2025 (summer)</span><span>
+            SDE intern @ Amazon Ads, where I built a validation stack for validating 
+            rankings/recommendations models + did some cool statistical studies</span></li>
+
+        <li class="experience-item"><span class="experience-date">2024 (summer)</span><span>
+            REU program @ ASU Sensip Center for convnet dimensionality reduction using quantum computing</span></li>
+
+        <li class="experience-item"><span class="experience-date">2022-2023</span><span>
+            Software intern @ Acivilate, inc., a gov-tech startup for reducing <a href="#" 
+            data-link="recidivism">recidivism</a></span></li>
+
     </ul>
     
-    <h2>Random stuff i'm currently learning & goals</h2>
+    <h2>Random goals</h2>
     <ul>
-        <li>How to make <a href="https://en.wikipedia.org/wiki/Sujeonggwa">su-jeong-gwa</a></li>
-        <li>The <a href="https://en.wikipedia.org/wiki/PCP_theorem">PCP Theorem</a></li>
-        <li>Lean4</li>
-        <li>日本語 (japanese!)</li>
+        <li>Learn how to make <a href="#" data-link="sujeonggwa">su-jeong-gwa</a></li>
+        <li>Learn the <a href="#" data-link="pcp-theorem">PCP Theorem</a></li>
+        <li>Learn Lean4</li>
+        <li>Learn 日本語 (japanese!)</li>
+    </ul>
+
+    <h2>Bleu</h2>
+    <p>Since the end of 2023, I began semi-frequently posting on my ai / complexity theory 
+        blog, <a href="https://chrissuu.com/bleu">bleu</a>. The name of the blog comes from french 
+        for blue, which is my favorite color. It's also inspired by name of the BLEU (<a href="#" data-link="bleu-metric">Bilingual 
+        Evaluation Understudy</a>) metric, which was/is used to study the faithfulness of machine translations between languages. </p>
+    <p>Last month (December 2025), the blog turned 2 years old (birthday post coming soon...)! The content of 
+        the blog was initially motivated by CMU's 15-251, Great Ideas in Theoretical Computer Science, 
+        partly by <a href="#" data-link="scott-aaronson-blog">Scott Aaronson's blog</a>, and primarily 
+        my interests in theoretical cs. </p>
+    
+    <h4>Here are some of the recent posts!</h4>  
+    <ul id="bleu-recent-posts">
+        <!-- recent-posts:start -->
+        <li>2025-12-01 — <a href="https://www.chrissuu.com/bleu/2025-12-01-bin-search/">revisiting bin. search</a> - reduction to partitioned boolean array search</li>
+        <li>2025-11-15 — <a href="https://www.chrissuu.com/bleu/2025-11-15-todas-theorem/">toda's theorem</a> - PH is a subset of P^#SAT</li>
+        <li>2025-10-28 — <a href="https://www.chrissuu.com/bleu/2025-10-28-lean/">lean is amazing!</a> - lean4 propaganda</li>
+        <li>2025-10-17 — <a href="https://www.chrissuu.com/bleu/2025-10-17-bootstrapping-llm/">pre training as bootstrapping</a> - llm post-training</li>
+        <li>2025-08-21 — <a href="https://www.chrissuu.com/bleu/2025-08-21-pspace-ctc/">your time is taking up my space!</a> - time travel as a computational resource? (pt 3)</li>
+        <!-- recent-posts:end -->
     </ul>
     
     <h2>My Links</h2>
@@ -48,5 +103,43 @@
     <h2>Get In Touch!</h2>
     <p>Email: chrisssu19 [@] gmail.com</a></p>
     <p>School email: chrjs [@] cmu.edu</a></p>
+    <section class="footnotes">
+        <ol>
+            <li id="fn-form">
+                <p>I recall writing about how I found it kinda worrying that scientific research has become so
+                    specialized that only a handful of experts can really verify papers in the field. (Auto)Formalization
+                    to me is one of the most important projects that will break us free of verification bottleneck. 
+                    Assuming you trust proof assistants, compilable code gets you verification of papers 
+                    (and results) for free. This makes science modular (like code), at the cost of abstracting away
+                    the intuition of an idea/proof, which is often more important than the implications. But, I think
+                    this is not that big of a problem, since we can have translations of formal code back 
+                    into natural language. 
+                </p>
+            </li>
+            <li id="fn-lean">
+                <p>See <a href="#" data-link="lean-kernel-overview">here</a> for info about the Lean4 kernel, 
+                    and <a href="#" data-link="lean-kernel-reference">here</a> for why this is important and 
+                    interesting! I may look for a partner to help me with this, and if this interests you, please 
+                    reach out to me!</p>
+            </li>
+            <li id="fn-cook-levin">
+                <p>I *believe* they're close. Last I heard, there was a project called the Boole language for doing
+                    CS/algo stuff, but I haven't checked on it in a long time. Some theorems 
+                    I have in mind are: <a href="#" data-link="cook-levin">Cook-Levin theorem</a>, 
+                    {ambitiously} the <a href=$" data-link="pcp-theorem">PCP theorem</a> (Dinur's proof could work too), 
+                    or PSPACE=IP.</p>
+            </li>
+            <li id="fn-elastisched">
+                <p>I had originally built this app to help me time-manage and just put tasks on my calendar since
+                    I felt I was wasting time scheduling things myself. It has helped me incredibly recently, 
+                    and I think there's some interesting ways to improve it! I am looking for co-founders/maintainers
+                    and have some ideas for the future of this project!</p>
+            </li>
+        </ol>
+    </section>
+    </div>
+    <script src="links.js"></script>
+    <script src="main.js"></script>
+    <script src="footnotes.js"></script>
 </body>
 </html>
