@@ -1,0 +1,33 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - git submodule update --init --recursive
+    build:
+      commands:
+        - python3 scripts/update_recent_posts.py
+        # Build blog from submodule
+        - cd bleu
+        - bundle install
+        - bundle exec jekyll build
+        - cd ..
+        # Prepare final _site output
+        - mkdir -p _site/bleu
+        - cp -r bleu/_site/bleu/* _site/bleu/
+        # Copy root files
+        - cp index.html _site/
+        - cp styles.css _site/
+        - cp main.js _site/
+        - cp footnotes.js _site/
+        - cp links.js _site/
+        - cp recent.json _site/
+        - cp -r rito _site/
+        # Copy assets folder
+        - cp -r assets _site/
+  artifacts:
+    baseDirectory: _site
+    files:
+      - '**/*'
+  cache:
+    paths: []
