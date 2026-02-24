@@ -29,6 +29,24 @@
       "subtitle": "time travel as a computational resource? (pt 3)",
       "date": "2025-08-21",
       "url": "https://www.chrissuu.com/bleu/2025-08-21-pspace-ctc/"
+    },
+    {
+      "title": "closed timelike curve complexity",
+      "subtitle": "time travel as a computational resource? (pt 2)",
+      "date": "2025-08-18",
+      "url": "https://www.chrissuu.com/bleu/2025-08-18-ctc-complexity/"
+    },
+    {
+      "title": "probabilistic grandfather",
+      "subtitle": "time travel as a computational resource? (pt 1)",
+      "date": "2025-08-17",
+      "url": "https://www.chrissuu.com/bleu/2025-08-17-probabilistic-grandfathers/"
+    },
+    {
+      "title": "currying and function templates",
+      "subtitle": "a gentle introduction to functional programming",
+      "date": "2025-03-25",
+      "url": "https://www.chrissuu.com/bleu/2025-03-25-function-templates/"
     }
   ]
 }

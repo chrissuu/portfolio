@@ -22,6 +22,8 @@ frontend:
         - cp footnotes.js _site/
         - cp links.js _site/
         - cp recent.json _site/
+        - cp robots.txt _site/
+        - cp sitemap.xml _site/
         - cp -r rito _site/
         # Copy assets folder
         - cp -r assets _site/

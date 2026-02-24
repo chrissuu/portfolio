@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import html
 import json
 import os
 import re
@@ -10,7 +11,8 @@ ROOT_DIR = os.path.dirname(os.path.dirname(__file__))
 POSTS_DIR = os.path.join(ROOT_DIR, "bleu", "_posts")
 OUTPUT_JSON = os.path.join(ROOT_DIR, "recent.json")
 OUTPUT_INDEX = os.path.join(ROOT_DIR, "index.html")
-DEFAULT_COUNT = 5
+OUTPUT_SITEMAP = os.path.join(ROOT_DIR, "sitemap.xml")
+DEFAULT_COUNT = 8
 
 START_MARKER = "<!-- recent-posts:start -->"
 END_MARKER = "<!-- recent-posts:end -->"
@@ -71,9 +73,17 @@ def load_posts():
 def format_list_items(posts):
     lines = []
     for post in posts:
-        subtitle = f" - {post['subtitle']}" if post["subtitle"] else ""
+        title = html.escape(post["title"])
+        subtitle = html.escape(post["subtitle"])
+        date = html.escape(post["date"])
+        url = html.escape(post["url"], quote=True)
+        link_title = html.escape(
+            f"Read '{post['title']}' on Chris Su's CMU blog",
+            quote=True,
+        )
+        subtitle_html = f" - {subtitle}" if subtitle else ""
         lines.append(
-            f'        <li>{post["date"]} — <a href="{post["url"]}">{post["title"]}</a>{subtitle}</li>'
+            f'        <li>{date} — <a href="{url}" title="{link_title}">{title}</a>{subtitle_html}</li>'
         )
     return "\n".join(lines)
 
@@ -94,6 +104,37 @@ def update_index_html(list_items_html):
         handle.write(updated)
 
 
+def update_sitemap(posts):
+    static_urls = [
+        "https://www.chrissuu.com/",
+        "https://www.chrissuu.com/bleu/",
+        "https://www.chrissuu.com/bleu/tags/",
+        "https://www.chrissuu.com/bleu/feed.xml",
+        "https://www.chrissuu.com/rito/",
+    ]
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ]
+
+    for url in static_urls:
+        lines.append("  <url>")
+        lines.append(f"    <loc>{html.escape(url)}</loc>")
+        lines.append("  </url>")
+
+    for post in posts:
+        lines.append("  <url>")
+        lines.append(f"    <loc>{html.escape(post['url'])}</loc>")
+        lines.append(f"    <lastmod>{html.escape(post['date'])}</lastmod>")
+        lines.append("  </url>")
+
+    lines.append("</urlset>")
+
+    with open(OUTPUT_SITEMAP, "w", encoding="utf-8") as handle:
+        handle.write("\n".join(lines) + "\n")
+
+
 def main():
     count = DEFAULT_COUNT
     if len(sys.argv) > 1:
@@ -103,13 +144,20 @@ def main():
             print("Usage: update_recent_posts.py [count]", file=sys.stderr)
             sys.exit(1)
 
-    posts = load_posts()[:count]
+    if count < 1:
+        print("Count must be >= 1.", file=sys.stderr)
+        sys.exit(1)
+
+    all_posts = load_posts()
+    posts = all_posts[:count]
     output = {"posts": posts}
+
     with open(OUTPUT_JSON, "w", encoding="utf-8") as handle:
         json.dump(output, handle, indent=2)
         handle.write("\n")
 
     update_index_html(format_list_items(posts))
+    update_sitemap(all_posts)
 
 
 if __name__ == "__main__":
