@@ -9,7 +9,8 @@
         "sujeonggwa": "https://en.wikipedia.org/wiki/Sujeonggwa",
         "pcp-theorem": "https://en.wikipedia.org/wiki/PCP_theorem",
         "bleu-metric": "https://en.wikipedia.org/wiki/BLEU",
-        "scott-aaronson-blog": "https://scottaaronson.blog/"
+        "scott-aaronson-blog": "https://scottaaronson.blog/",
+        "c0-ref": "https://c0.cs.cmu.edu/docs/c0-reference.pdf"
     };
 
     function applyLinks() {
